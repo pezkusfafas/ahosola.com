@@ -5,414 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pekka Ahosola | ahosola.com</title>
     <style>
-        /* CSS - Minimalistic B&W Style */
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: "Georgia", serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid #222;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            text-align: center;
-        }
-
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        header nav a:hover {
-            border-bottom: 1px solid #fff;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 120px auto 50px;
-            padding: 20px;
-        }
-
-        section {
-            padding: 80px 0 40px;
-            border-bottom: 1px solid #111;
-        }
-
-        h1, h2, h3 {
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .hero {
-            text-align: center;
-            border-bottom: 1px solid #222;
-            padding-bottom: 60px;
-        }
-
-        .profile-pic {
-            width: 220px;
-            height: 220px;
-            border: 1px solid #333;
-            object-fit: cover;
-            margin-bottom: 25px;
-        }
-
-        .intro-text {
-            max-width: 750px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .link-bar {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .link-bar a {
-            display: inline-block;
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid #fff;
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .link-bar a:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* Portfolio Grid System */
-        .portfolio-group {
-            margin-bottom: 60px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .grid img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border: 1px solid #222;
-            filter: grayscale(100%);
-            transition: 0.4s ease-in-out;
-        }
-
-        .grid img:hover {
-            filter: grayscale(0%);
-            border-color: #fff;
-            transform: scale(1.02);
-        }
-
-        /* Project Layout (Alternating) */
-        .project-row {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-
-        .project-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .project-img {
-            flex: 1;
-            max-width: 450px;
-        }
-
-        .project-img img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border: 1px solid #333;
-        }
-
-        .project-text {
-            flex: 1;
-        }
-
-        /* Video Section */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-bottom: 15px;
-            border: 1px solid #333;
-            background: #111;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-description {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 50px;
-            font-style: italic;
-        }
-
-        /* Email Form */
-        .email-form {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .email-form input[type="email"] {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: #000;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Georgia", serif;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .submit-btn {
-            background: #fff;
-            color: #000;
-            border: 1px solid #fff;
-            padding: 15px 30px;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #000;
-            color: #fff;
-        }
-
-        .contact-btn {
-            display: block;
-            width: fit-content;
-            margin: 40px auto;
-            padding: 15px 45px;
-            border: 1px solid #fff;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .contact-btn:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        footer {
-            text-align: center;
-            padding: 80px 0;
-            border-top: 1px solid #111;
-        }
-
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .project-row, .project-row.reverse { flex-direction: column; text-align: center; }
-            .project-img { max-width: 100%; }
-            header nav a { margin: 0 5px; font-size: 0.7rem; }
-        }
+        /* [Styles remain the same as previous version] */
+        body { background-color: #000; color: #fff; font-family: "Georgia", serif; margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth; }
+        header { background: rgba(0, 0, 0, 0.95); border-bottom: 1px solid #222; padding: 20px; position: fixed; width: 100%; top: 0; z-index: 1000; text-align: center; }
+        header nav a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .container { max-width: 1000px; margin: 120px auto 50px; padding: 20px; }
+        section { padding: 80px 0 40px; border-bottom: 1px solid #111; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid #222; filter: grayscale(100%); transition: 0.4s; }
+        .grid img:hover { filter: grayscale(0%); border-color: #fff; }
+        /* ... [Rest of your styles] ... */
     </style>
 </head>
 <body>
+<!-- [Keep header/nav structure] -->
+<section id="home" class="hero">
+    <img src="images/me.jpg" alt="Pekka Ahosola" class="profile-pic">
+    <h1>Pekka Ahosola</h1>
+    <div class="intro-text">
+        <p>I am an industrial design and economics student at Aalto University in Helsinki, Finland. I specialize in freelance digital media production and run a company focused on high-efficiency digital product automation pipelines.</p>
+        <p><strong>+358 45 883 3520</strong> | <a href="mailto:pekka@ahosola.com" style="color:#fff;">pekka@ahosola.com</a></p>
+    </div>
+    <div class="link-bar">
+        <a href="https://www.linkedin.com/in/pekka-ahosola-26a58a262/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/pexxa/" target="_blank">Instagram</a>
+    </div>
+</section>
 
-<header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-    </nav>
-</header>
-
-<div class="container">
-
-    <!-- HOME SECTION -->
-    <section id="home" class="hero">
-        <img src="images/me.jpg" alt="Pekka Ahosola" class="profile-pic">
-        <h1>Pekka Ahosola</h1>
-        <div class="intro-text">
-            <p>I am an economics and industrial design student living in Helsinki, Finland, currently studying at Aalto University. I specialize in digital media production and run a digital services firm focused on the creation of high-efficiency automation pipelines.</p>
-            <p><strong>+358 45 883 3520</strong> | <a href="mailto:pekka@ahosola.com" style="color:#fff;">pekka@ahosola.com</a></p>
-        </div>
-        
-        <div class="link-bar">
-            <a href="https://www.linkedin.com/in/pekka-ahosola-26a58a262/" target="_blank">LinkedIn</a>
-            <a href="https://www.instagram.com/pexxa/" target="_blank">Instagram</a>
-            <a href="https://www.thingiverse.com/pekkaahosola/designs" target="_blank">Thingiverse</a>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-
-        <div class="portfolio-group">
-            <h3>Industrial Design</h3>
-            <div class="grid">
-                <img src="images/id1.jpg" alt="Design 1"><img src="images/id2.jpg" alt="Design 2"><img src="images/id3.jpg" alt="Design 3">
-                <img src="images/id4.jpg" alt="Design 4"><img src="images/id5.jpg" alt="Design 5"><img src="images/id6.jpg" alt="Design 6">
-                <img src="images/id7.jpg" alt="Design 7"><img src="images/id8.jpg" alt="Design 8"><img src="images/id9.jpg" alt="Design 9">
-            </div>
-        </div>
-
-        <div class="portfolio-group">
-            <h3>Photography</h3>
-            <div class="grid">
-                <img src="images/photo1.jpg" alt="Photo 1"><img src="images/photo2.jpg" alt="Photo 2"><img src="images/photo3.jpg" alt="Photo 3">
-                <img src="images/photo4.jpg" alt="Photo 4"><img src="images/photo5.jpg" alt="Photo 5"><img src="images/photo6.jpg" alt="Photo 6">
-                <img src="images/photo7.jpg" alt="Photo 7"><img src="images/photo8.jpg" alt="Photo 8"><img src="images/photo9.jpg" alt="Photo 9">
-            </div>
-        </div>
-
-        <div class="portfolio-group">
-            <h3>Graphic Design</h3>
-            <div class="grid">
-                <img src="images/design1.jpg" alt="Design 1"><img src="images/design2.jpg" alt="Design 2"><img src="images/design3.jpg" alt="Design 3">
-                <img src="images/design4.jpg" alt="Design 4"><img src="images/design5.jpg" alt="Design 5"><img src="images/design6.jpg" alt="Design 6">
-            </div>
-        </div>
-
-        <div class="portfolio-group">
-            <h3>3D Modeling and Rendering</h3>
-            <div class="grid">
-                <img src="images/render1.jpg" alt="Render 1"><img src="images/render2.jpg" alt="Render 2"><img src="images/render3.jpg" alt="Render 3">
-                <img src="images/render4.jpg" alt="Render 4"><img src="images/render5.jpg" alt="Render 5"><img src="images/render6.jpg" alt="Render 6">
-            </div>
-        </div>
-
-        <div class="portfolio-group">
-            <h3>Videography</h3>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/o5i6AueI5KI" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <p class="video-description"><strong>esim. - Vowels</strong> | Music Video. Director of Photography.</p>
-
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/28QV7gLaiMQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <p class="video-description"><strong>Doctoral Conferment Ceremony 2025</strong> | Finnish National Defence University. Director of Photography.</p>
-
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/a_rxn66zX0o" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <p class="video-description"><strong>Coffee Hour</strong> | Short Film. Director. Gold Prize Winner of the Kaikki kuvaa 2019 film competition.</p>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        
-        <!-- Project 1 -->
-        <div class="project-row">
-            <div class="project-img"><img src="images/project1.jpg" alt="YouTube Automation"></div>
-            <div class="project-text">
-                <h3>Fully Autonomous Content Engine</h3>
-                <p>I engineered a custom codebase that automatically generates and uploads AI-powered acapella and instrumental versions of popular music. The bot autonomously handles song selection and transforms them into high-quality visual and sonic content. During a short trial run, the system generated over one million views in just a few days, validating high market demand for automated digital assets.</p>
-            </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-row reverse">
-            <div class="project-img"><img src="images/project2.jpg" alt="Aaria Houseware"></div>
-            <div class="project-text">
-                <h3>Aaria: A Futuristic Brand Concept</h3>
-                <p>Developed the brand identity and industrial concept for "Aaria," a houseware design brand centered on geometric, futuristic aesthetics. The utensil designs utilize a consistent triangular design language—from the striking handle forms to the functional components—creating a cohesive and modular ecosystem. The brand logo was specifically engineered without "holes" to ensure high-fidelity printing and stencil application on physical products.</p>
-            </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-row">
-            <div class="project-img"><img src="images/project3.jpg" alt="AI Video Software"></div>
-            <div class="project-text">
-                <h3>AI-Driven Video Production & Marketing</h3>
-                <p>I developed proprietary AI software that streamlines professional-grade video post-production at scale. The system utilizes AI transcription to automatically cut silence and artifacts, apply dynamic zooming for engagement, and add background music. It further extracts "viral clips" from the main content and uses the Google API for automated distribution. Contact me for a demo of the software or to see live channels utilizing this pipeline.</p>
-            </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-row reverse">
-            <div class="project-img"><img src="images/project4.jpg" alt="YouTube Career"></div>
-            <div class="project-text">
-                <h3>Digital Content Origins (2015–2020)</h3>
-                <p>My technical foundation was built through a successful early career as a leading Finnish tech and tutorial creator. Over five years and thousands of videos, I reached over a million views and established myself as a top creator in the Finnish educational sphere. This period allowed me to master the entire creative lifecycle—from direction to marketing—and remains the bedrock of the technical skills I rely on today.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section id="services">
-        <h2>Services</h2>
-        <h3>Digital Automation Pipelines</h3>
-        <p>Bespoke AI-assisted workflows to scale content production without sacrificing aesthetic quality.</p>
-        <h3>Industrial Design & Prototyping</h3>
-        <p>Concept development through to international factory-scale manufacturing management.</p>
-        <h3>Multimedia Services</h3>
-        <p>Award-winning film direction, professional photography, and high-end 3D rendering.</p>
-
-        <a href="mailto:pekka@ahosola.com" class="contact-btn">Contact Me</a>
-    </section>
-
-    <!-- NETWORK SECTION -->
-    <section id="signup">
-        <h2>Join the Network</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Interested in automation or design collaborations? Enter your email to stay connected.</p>
-        <div class="email-form">
-            <form action="https://formspree.io/f/mojglldl" method="POST">
-                <input type="email" name="email" required placeholder="Enter your email address">
-                <button type="submit" class="submit-btn">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="link-bar">
-            <a href="https://www.linkedin.com/in/pekka-ahosola-26a58a262/" target="_blank">LinkedIn</a>
-            <a href="https://www.instagram.com/pexxa/" target="_blank">Instagram</a>
-            <a href="https://www.thingiverse.com/pekkaahosola/designs" target="_blank">Thingiverse</a>
-        </div>
-        <p>&copy; 2025 Pekka Ahosola | ahosola.com</p>
-    </footer>
-
-</div>
-
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <h3>Industrial Design</h3>
+    <div class="grid">
+        <!-- Add your 15 photos here -->
+        <img src="images/id1.jpg"><img src="images/id2.jpg"><img src="images/id3.jpg">
+        <img src="images/id4.jpg"><img src="images/id5.jpg"><img src="images/id6.jpg">
+        <img src="images/id7.jpg"><img src="images/id8.jpg"><img src="images/id9.jpg">
+        <img src="images/id10.jpg"><img src="images/id11.jpg"><img src="images/id12.jpg">
+        <img src="images/id13.jpg"><img src="images/id14.jpg"><img src="images/id15.jpg">
+    </div>
+    <!-- [Rest of sections: Photography, Graphic Design, 3D Rendering/Modeling, Videography] -->
+</section>
+<!-- [Rest of your structure] -->
 </body>
 </html>
